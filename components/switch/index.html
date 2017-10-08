@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Switch</title>
+    <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/switch.css">
+</head>
+<body>
+
+
+<div class="container">
+
+    <center>
+        <button type="button">Add</button>
+        <div class="col col-4" style="margin-top:200px;">
+            <!--<input  type="checkbox" name="w1">-->
+            <!--<input  type="checkbox" name="w1">-->
+            <!--<input  type="checkbox" name="w1">-->
+            <!--<input  type="checkbox" name="w1">-->
+            <!--<input  type="checkbox" name="w1">-->
+
+
+            <input class="c2" type="radio" name="w1">
+            <input class="c2" type="radio" checked="checked" name="w1">
+            <input class="c2" type="radio" name="w1">
+            <input class="c2" type="radio" name="w1">
+            <input class="c2" type="radio" name="w1">
+
+
+
+            <!--<div class="switch">-->
+                <!--<label>-->
+                    <!--<input type="checkbox" name="w1">-->
+                    <!--<div class="switch-bar"></div>-->
+                    <!--<div class="switch-handler"></div>-->
+                <!--</label>-->
+            <!--</div>-->
+
+        </div>
+        <input class="c2 s" type="checkbox" checked="checked" name="w1">
+    </center>
+
+</div>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script src="./js/switch.v.2.js"></script>
+
+<script>
+
+
+    $('.c2').switch();
+
+
+
+    $('button').on('click',function () {
+        $('body').append('<input class="c2" type="checkbox" name="w1">');
+    })
+
+    $('.s').on('change',function () {
+
+    });
+</script>
+
+</body>
+</html>

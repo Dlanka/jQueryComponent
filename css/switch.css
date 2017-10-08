@@ -1,0 +1,70 @@
+.switch {
+  position: relative;
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle; }
+  .switch label {
+    display: block;
+    cursor: pointer;
+    margin-bottom: 0; }
+  .switch .switch-bar {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 12px;
+    display: inline-block; }
+  .switch .switch-handler {
+    position: absolute;
+    background: #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0px 1px 2px rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0 0px 1px 2px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 0px 1px 2px rgba(0, 0, 0, 0.07);
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    transition: all 0.3s linear; }
+    .switch .switch-handler div {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.05);
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -ms-transform: scale(0);
+      -o-transform: scale(0);
+      transform: scale(0);
+      -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      -moz-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      -webkit-transition-delay: 0.05s;
+      -moz-transition-delay: 0.05s;
+      -ms-transition-delay: 0.05s;
+      -o-transition-delay: 0.05s;
+      transition-delay: 0.05s; }
+      .switch .switch-handler div.is-scale {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        left: calc(50% - 25px);
+        top: calc(50% - 25px);
+        transform: scale(1);
+        z-index: -1; }
+  .switch input[type="checkbox"],
+  .switch input[type="radio"] {
+    display: none; }
+  .switch.is-checked .switch-handler {
+    background: #ff8905;
+    left: 20px; }
+    .switch.is-checked .switch-handler div {
+      z-index: -1; }
+  .switch.is-checked .switch-bar {
+    background: rgba(255, 137, 5, 0.3); }
