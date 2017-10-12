@@ -68,3 +68,6 @@
       z-index: -1; }
   .switch.is-checked .switch-bar {
     background: rgba(255, 137, 5, 0.3); }
+  .switch.is-disabled {
+    opacity: 0.45;
+    pointer-events: none; }

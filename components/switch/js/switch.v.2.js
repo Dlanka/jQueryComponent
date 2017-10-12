@@ -46,6 +46,8 @@
         this.isChecked = 0;
         this.type = this.element.attr('type');
         this.name = this.element.attr('name');
+        this.isDisabled = !!this.element.attr('disabled');
+        this.isRequired = !!this.element.attr('required');
         this.$switchHandler = this.template.find('.switch-handler');
         this.transitionEvent = whichTransitionEvent();
 
@@ -55,6 +57,9 @@
         if (this.element.is(':checked')) {
             this.template.addClass('is-checked');
         }
+
+        if (this.isDisabled)
+            this.template.addClass('is-disabled');
     }
 
     Switch.prototype.init = function () {
@@ -106,7 +111,7 @@
             $(document).find('input[name="' + self.name + '"]').each(function () {
                 var $this = $(this);
 
-                if($this.attr('type') === 'checkbox')
+                if ($this.attr('type') === 'checkbox')
                     return;
 
                 $this.parents('.switch').removeClass('is-checked');
@@ -124,6 +129,10 @@
 
 
     Switch.prototype.onMouseDownHandler = function (e) {
+
+        if (this.isDisabled)
+            return;
+
         var handler = $(e.target);
 
         if (!handler.hasClass('switch-handler'))
@@ -156,7 +165,12 @@
     };
 
     Switch.prototype.onMouseUp = function (e) {
+
+        if (this.isDisabled)
+            return;
+
         e.stopPropagation();
+
         this.isChecked = !!this.value();
         //console.log(this.isChecked);
         // this.isMouseDown = false;
@@ -190,6 +204,7 @@
         // }
 
     };
+
 
 
     $.fn.switch = function (options) {
