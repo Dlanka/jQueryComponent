@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Select</title>
+
+    <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/select.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="col-md-12" style="margin-top:200px;">
+        <form class="cmxform" id="commentForm" method="get" action="">
+
+            <div class="row">
+                <button type="button">Add option</button>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+
+                    <select name="" id="ss" required data-label="Select Type">
+                        <option value="1">Option</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                        <option value="4">Option 4</option>
+                        <option value="5">Option 5</option>
+                        <option value="6">Option 6</option>
+                        <option value="7">Option 7</option>
+                    </select>
+
+                    <!--<div class="js-select is-active">-->
+
+                    <!--<div class="js-header">-->
+                    <!--<div class="selected-option">-->
+                    <!--<label>Select Type</label>-->
+                    <!--<span class="current">Option 1</span>-->
+                    <!--</div>-->
+                    <!--<div class="animate-wrap">-->
+                    <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<ul class="js-list-options">-->
+                    <!--<li class="is-disabled" data-value="3">Select</li>-->
+                    <!--<li data-value="34">Option 1</li>-->
+                    <!--<li data-value="37">Option 2</li>-->
+                    <!--</ul>-->
+
+                    <!--</div>-->
+                </div>
+                <div class="col-md-4">
+                    <select name="" id="sse" required data-label="Select Type">
+                        <option value="1">Option</option>
+                        <option value="2">Option 12</option>
+                        <option value="3">Option 23</option>
+                        <option value="4">Option 4</option>
+                        <option value="5">Option 5</option>
+                        <option value="6">Option 6</option>
+                        <option value="7">Option 7</option>
+                    </select>
+                </div>
+                <!--<div class="col-md-12">-->
+                <!--<button type="submit">Save</button>-->
+                <!--</div>-->
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script src="../../js/jquery.validate.min.js"></script>
+<script src="./js/select.js"></script>
+
+
+<script>
+    $(function () {
+        $("#commentForm").validate();
+
+        $('select').jsSelect({onSelect:function () {
+            console.log('asas')
+        }});
+
+        var x = 10;
+        $('button').on('click', function () {
+            var v = x++;
+            var op = '<option value="' + (v) + '">option' + v + '</option>';
+            var s = $('select').append(op)
+        })
+    })
+</script>
+</body>
+</html>

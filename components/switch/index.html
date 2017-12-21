@@ -24,24 +24,32 @@
             <!--<input  type="checkbox" name="w1">-->
 
 
-            <input class="c2" type="radio" name="w1" disabled="disabled">
-            <input class="c2" type="radio" checked="checked" name="w1">
-            <input class="c2" type="radio" name="w1">
-            <input class="c2" type="radio" name="w1">
-            <input class="c2" type="radio" name="w1">
-
+            <!--<input class="c2" type="radio" name="w1" disabled="disabled">-->
+            <!--<input class="c2" type="radio" checked="checked" name="w1">-->
+            <!--<input class="c2" type="radio" name="w1">-->
+            <!--<input class="c2" type="radio" name="w1">-->
+            <!--<input class="c2" type="checkbox" name="w2">-->
 
 
             <!--<div class="switch">-->
-                <!--<label>-->
-                    <!--<input type="checkbox" name="w1">-->
-                    <!--<div class="switch-bar"></div>-->
-                    <!--<div class="switch-handler"></div>-->
-                <!--</label>-->
+            <!--<label>-->
+            <!--<input type="checkbox" name="w1">-->
+            <!--<div class="switch-bar"></div>-->
+            <!--<div class="switch-handler"></div>-->
+            <!--</label>-->
             <!--</div>-->
 
+        <!--<input class="c2 s" type="checkbox" checked="checked" disabled="" name="w1">-->
+
         </div>
-        <input class="c2 s" type="checkbox" checked="checked" disabled="" name="w1">
+
+        <h1>sssssssssss</h1>
+        <div class="switch is-checked" id="sw_2">
+            <div class="switch-bar"></div>
+            <div class="switch-handler"></div>
+            <input class="c2" type="radio" checked="checked" name="w1">
+        </div>
+
     </center>
 
 </div>
@@ -54,12 +62,11 @@
     $('.c2').switch();
 
 
-
-    $('button').on('click',function () {
+    $('button').on('click', function () {
         $('body').append('<input class="c2" type="checkbox" name="w1">');
     })
 
-    $('.s').on('change',function () {
+    $('.s').on('change', function () {
 
     });
 </script>

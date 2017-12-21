@@ -1,0 +1,139 @@
+@mixin animation {
+  -webkit-transition: all ease-in 0.5s;
+  -moz-transition: all ease-in 0.5s;
+  -ms-transition: all ease-in 0.5s;
+  -o-transition: all ease-in 0.5s;
+  transition: all ease-in 0.5s;
+}
+
+.fl-block {
+  float: left;
+  width: inherit;
+}
+
+select {
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.js-select {
+
+  float: left;
+  width: 100%;
+  position: relative;
+  outline: none;
+
+  &.is-disabled {
+    opacity: 0.4;
+  }
+
+  &:not(.is-disabled) {
+    cursor: pointer;
+  }
+
+  .js-header {
+
+    @extend .fl-block;
+    background: #fff;
+    margin-top: 10px;
+
+    .selected-option {
+      @extend .fl-block;
+      position: relative;
+      height: 24px;
+
+      label {
+        font-size: 16px;
+        color: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        @include animation;
+      }
+
+      .current {
+        color: #000;
+        font-size: 14px;
+      }
+
+    }
+
+    .animate-wrap {
+      @extend .fl-block;
+      border: 1px solid rgba(0, 0, 0, 0.11);
+      position: relative;
+
+      & > div {
+        width: 100%;
+        position: absolute;
+        height: 2px;
+        left: 0;
+        top: -1px;
+        background: rgba(33, 155, 222, 0.95);
+      }
+    }
+
+  }
+
+  //When is Active
+  &.is-active {
+    .js-header {
+      .selected-option {
+
+        label {
+          font-size: 12px;
+          top: -15px;
+        }
+      }
+    }
+  }
+
+  &.is-open {
+    .js-list-options {
+      display: block;
+    }
+  }
+
+  .js-list-options {
+
+    display: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    max-height: 140px;
+    overflow-y: scroll;
+    top: 40px;
+    left: 0;
+    -webkit-box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.12);
+
+    li {
+      list-style: none;
+      padding: 10px 15px;
+      color: #000;
+      font-size: 14px;
+      white-space: nowrap;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      width: inherit;
+      overflow: hidden;
+
+      &.is-disabled {
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.03);
+        color: rgba(0, 0, 0, 0.16);
+      }
+
+      &.is-selected,
+      &:not(.is-disabled).is-focus,
+      &:not(.is-disabled):hover {
+        background: rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+}

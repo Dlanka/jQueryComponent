@@ -1,0 +1,84 @@
+.fl-block, .js-select .js-header, .js-select .js-header .selected-option, .js-select .js-header .animate-wrap {
+  float: left;
+  width: inherit; }
+
+select {
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0; }
+
+.js-select {
+  float: left;
+  width: 100%;
+  position: relative;
+  outline: none; }
+  .js-select.is-disabled {
+    opacity: 0.4; }
+  .js-select:not(.is-disabled) {
+    cursor: pointer; }
+  .js-select .js-header {
+    background: #fff;
+    margin-top: 10px; }
+    .js-select .js-header .selected-option {
+      position: relative;
+      height: 24px; }
+      .js-select .js-header .selected-option label {
+        font-size: 16px;
+        color: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        -webkit-transition: all ease-in 0.5s;
+        -moz-transition: all ease-in 0.5s;
+        -ms-transition: all ease-in 0.5s;
+        -o-transition: all ease-in 0.5s;
+        transition: all ease-in 0.5s; }
+      .js-select .js-header .selected-option .current {
+        color: #000;
+        font-size: 14px; }
+    .js-select .js-header .animate-wrap {
+      border: 1px solid rgba(0, 0, 0, 0.11);
+      position: relative; }
+      .js-select .js-header .animate-wrap > div {
+        width: 100%;
+        position: absolute;
+        height: 2px;
+        left: 0;
+        top: -1px;
+        background: rgba(33, 155, 222, 0.95); }
+  .js-select.is-active .js-header .selected-option label {
+    font-size: 12px;
+    top: -15px; }
+  .js-select.is-open .js-list-options {
+    display: block; }
+  .js-select .js-list-options {
+    display: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    max-height: 140px;
+    overflow-y: scroll;
+    top: 40px;
+    left: 0;
+    -webkit-box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.12); }
+    .js-select .js-list-options li {
+      list-style: none;
+      padding: 10px 15px;
+      color: #000;
+      font-size: 14px;
+      white-space: nowrap;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      width: inherit;
+      overflow: hidden; }
+      .js-select .js-list-options li.is-disabled {
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.03);
+        color: rgba(0, 0, 0, 0.16); }
+      .js-select .js-list-options li.is-selected, .js-select .js-list-options li:not(.is-disabled).is-focus, .js-select .js-list-options li:not(.is-disabled):hover {
+        background: rgba(0, 0, 0, 0.08); }
