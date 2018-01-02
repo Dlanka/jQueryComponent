@@ -6,6 +6,14 @@
   transition: all ease-in 0.5s;
 }
 
+@mixin animation2 {
+  -webkit-transition: all cubic-bezier(.33, .11, 0, 1) 0.3s;
+  -moz-transition: all cubic-bezier(.33, .11, 0, 1) 0.3s;
+  -ms-transition: all cubic-bezier(.33, .11, 0, 1) 0.3s;
+  -o-transition: all cubic-bezier(.33, .11, 0, 1) 0.3s;
+  transition: all cubic-bezier(.33, .11, 0, 1) 0.3s;
+}
+
 .fl-block {
   float: left;
   width: inherit;
@@ -67,12 +75,13 @@ select {
       position: relative;
 
       & > div {
-        width: 100%;
+        width: 0;
         position: absolute;
         height: 2px;
         left: 0;
         top: -1px;
         background: rgba(33, 155, 222, 0.95);
+        @include animation2;
       }
     }
 
@@ -95,6 +104,13 @@ select {
     .js-list-options {
       display: block;
     }
+
+    .animate-wrap {
+      & > div {
+        width: 100%;
+      }
+    }
+
   }
 
   .js-list-options {
@@ -104,13 +120,16 @@ select {
     padding: 0;
     position: absolute;
     width: 100%;
-    max-height: 140px;
-    overflow-y: scroll;
+    max-height: 164px;
     top: 40px;
     left: 0;
     -webkit-box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.12);
     -moz-box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.12);
     box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.12);
+
+    &.scroll {
+      overflow-y: scroll;
+    }
 
     li {
       list-style: none;

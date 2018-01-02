@@ -69,9 +69,9 @@
 
 
         $(document).off('.js-select');
-        $(document).on('click.js-select', '.js-select', this.onClick);
+        $(document).on('click.js-select', '.js-select:not(.is-disabled)', this.onClick);
         $(document).on('click.js-select', '.js-select .option:not(.is-disabled)', this.onOptionClick);
-        $(document).on('keydown.js-select', '.js-select', this.onKeyDown);
+        $(document).on('keydown.js-select', '.js-select:not(.is-disabled)', this.onKeyDown);
         $(document).on('click.js-select', this.onOuterClick);
 
     };
@@ -88,9 +88,10 @@
     };
 
     Select.prototype.setOptions = function () {
-        var self = this;
+        var self = this,
+            $ul = self.template.find('ul');
 
-        self.template.find('ul').html('');
+        $ul.html('');
 
         this.listOptions.each(function () {
             var $option = $(this);
@@ -99,7 +100,7 @@
                 return;
             }
 
-            self.template.find('ul').append($('<li></li>')
+            $ul.append($('<li></li>')
                 .attr('data-value', $option.val())
                 .addClass('option ' +
                     ($option.is(':selected') ? ' is-selected ' : '') +
@@ -107,6 +108,9 @@
                 ).html($option.text())
             );
         });
+
+        $ul.height() >= 164 ? $ul.addClass('scroll') : '';
+
 
     };
 
@@ -164,7 +168,7 @@
     };
 
     Select.prototype.onClick = function (e) {
-        console.log(' Aftwr ',this.isDisabled)
+        console.log(' Aftwr ', this.isDisabled)
         var $select = $(this);
 
         $('.js-select').not($select).removeClass('is-open');
@@ -268,12 +272,13 @@
 
     Select.prototype.disabled = function () {
         this.element.prop('disabled', true);
-        //this.isDisabled = true;
+        this.isDisabled = true;
     };
 
     Select.prototype.enabled = function () {
         this.element.prop('disabled', false);
         this.isDisabled = false;
+        this.template.removeClass('is-disabled');
     };
 
     $.fn.jsSelect = function (_options) {
