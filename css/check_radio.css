@@ -1,0 +1,60 @@
+.label, .checkbox label, .radio label {
+  position: relative;
+  padding-left: 20px;
+  color: rgba(0, 0, 0, 0.86);
+  font-size: 14px;
+  line-height: 16px;
+  cursor: pointer; }
+  .label::before, .checkbox label::before, .radio label::before, .label::after, .checkbox label::after, .radio label::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    display: block; }
+  .label::before, .checkbox label::before, .radio label::before {
+    width: 16px;
+    height: 16px;
+    display: block;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 2px solid rgba(0, 0, 0, 0.3); }
+
+.checkbox {
+  display: inline-block;
+  position: relative; }
+  .checkbox input[type="checkbox"] {
+    display: none; }
+    .checkbox input[type="checkbox"]:checked + label::before {
+      background: #6688dd;
+      border-color: #6688dd; }
+    .checkbox input[type="checkbox"]:checked + label::after {
+      width: 12px;
+      height: 10px;
+      top: 3px;
+      left: 2px;
+      background: url("./../images/ic_12_checked.png") center center no-repeat; }
+    .checkbox input[type="checkbox"]:disabled:checked + label::before {
+      background: rgba(2, 2, 5, 0.06);
+      border-color: rgba(2, 2, 5, 0.06); }
+    .checkbox input[type="checkbox"]:disabled:checked + label::after {
+      opacity: 0.4; }
+
+.radio {
+  display: inline-block;
+  position: relative; }
+  .radio label::before {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.3); }
+  .radio input[type="radio"] {
+    display: none; }
+    .radio input[type="radio"]:checked + label::before {
+      background: #6688dd;
+      border-color: #6688dd; }
+    .radio input[type="radio"]:checked + label::after {
+      width: inherit;
+      height: inherit;
+      top: 0;
+      left: 0; }

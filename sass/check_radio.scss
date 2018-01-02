@@ -1,0 +1,117 @@
+$borderColor: rgba(0, 0, 0, 0.3);
+$borderDisabledColor: rgba(0, 0, 0, 0.2);
+$checkedColor: #6688dd;
+$checkedDisabledColor: rgba(2, 2, 5, 0.06);
+$labelColor: rgba(0, 0, 0, 0.86);
+
+.label {
+  position: relative;
+  padding-left: 20px;
+  color: $labelColor;
+  font-size: 14px;
+  line-height: 16px;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    display: block;
+  }
+
+  &::before {
+    width: 16px;
+    height: 16px;
+    display: block;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 2px solid $borderColor;
+  }
+}
+
+.checkbox {
+  display: inline-block;
+  position: relative;
+
+  label {
+    @extend .label
+  }
+
+  input[type="checkbox"] {
+    display: none;
+
+    &:checked {
+      + label {
+
+        &::before {
+          background: $checkedColor;
+          border-color: $checkedColor;
+        }
+
+        &::after {
+          width: 12px;
+          height: 10px;
+          top: 3px;
+          left: 2px;
+          background: url("./../images/ic_12_checked.png") center center no-repeat;
+        }
+      }
+    }
+
+    &:disabled {
+      &:checked {
+        + label {
+
+          &::before {
+            background: $checkedDisabledColor;
+            border-color: $checkedDisabledColor;
+          }
+
+          &::after {
+            opacity: 0.4;
+          }
+        }
+      }
+    }
+  }
+}
+
+.radio {
+  display: inline-block;
+  position: relative;
+
+  label {
+    @extend .label;
+
+    &::before {
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      border: 2px solid $borderColor;
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+
+    &:checked {
+      + label {
+
+        &::before {
+          background: $checkedColor;
+          border-color: $checkedColor;
+        }
+
+        &::after {
+          width: inherit;
+          height: inherit;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+}
