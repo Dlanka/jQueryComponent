@@ -4,7 +4,7 @@ $checkedColor: #6688dd;
 $checkedDisabledColor: rgba(2, 2, 5, 0.06);
 $labelColor: rgba(0, 0, 0, 0.86);
 
-.label {
+.label-ch-rd {
   position: relative;
   padding-left: 20px;
   color: $labelColor;
@@ -37,7 +37,7 @@ $labelColor: rgba(0, 0, 0, 0.86);
   position: relative;
 
   label {
-    @extend .label
+    @extend .label-ch-rd
   }
 
   input[type="checkbox"] {
@@ -84,7 +84,7 @@ $labelColor: rgba(0, 0, 0, 0.86);
   position: relative;
 
   label {
-    @extend .label;
+    @extend .label-ch-rd;
 
     &::before {
       -webkit-border-radius: 50%;
